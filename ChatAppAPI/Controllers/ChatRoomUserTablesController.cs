@@ -13,46 +13,44 @@ using ChatAppAPI.Respons;
 
 namespace ChatAppAPI.Controllers
 {
-    public class ChatRoomTablesController : ApiController
+    public class ChatRoomUserTablesController : ApiController
     {
         private ChatCollegeDataBaseEntities db = new ChatCollegeDataBaseEntities();
 
-
-        // GET: api/ChatRoomTables
-        [Route ("api/ChatRoom")]
-        public IHttpActionResult GetChatroomEmploee()
+        // GET: api/ChatRoomUserTables
+        public IHttpActionResult GetChatRoomUserTable()
         {
-            return Ok(db.ChatRoomTable.Include(Сookies => Сookies.ChatMessageTable).ToList().ConvertAll(Sweep => new ResponceChatRoom(Sweep)));
+            return Ok(db.ChatRoomUserTable.ToList().ConvertAll(Сookies => new ResponceChatRoomUserTable(Сookies)));
         }
 
-        // GET: api/ChatRoomTables/5
-        [ResponseType(typeof(ChatRoomTable))]
-        public IHttpActionResult GetChatRoomTable(int id)
+        // GET: api/ChatRoomUserTables/5
+        [ResponseType(typeof(ChatRoomUserTable))]
+        public IHttpActionResult GetChatRoomUserTable(int id)
         {
-            ChatRoomTable chatRoomTable = db.ChatRoomTable.Find(id);
-            if (chatRoomTable == null)
+            ChatRoomUserTable chatRoomUserTable = db.ChatRoomUserTable.Find(id);
+            if (chatRoomUserTable == null)
             {
                 return NotFound();
             }
 
-            return Ok(chatRoomTable);
+            return Ok(chatRoomUserTable);
         }
 
-        // PUT: api/ChatRoomTables/5
+        // PUT: api/ChatRoomUserTables/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutChatRoomTable(int id, ChatRoomTable chatRoomTable)
+        public IHttpActionResult PutChatRoomUserTable(int id, ChatRoomUserTable chatRoomUserTable)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != chatRoomTable.PersonalNumberChatRoom)
+            if (id != chatRoomUserTable.PersonalNumberCRU)
             {
                 return BadRequest();
             }
 
-            db.Entry(chatRoomTable).State = EntityState.Modified;
+            db.Entry(chatRoomUserTable).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +58,7 @@ namespace ChatAppAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChatRoomTableExists(id))
+                if (!ChatRoomUserTableExists(id))
                 {
                     return NotFound();
                 }
@@ -73,16 +71,16 @@ namespace ChatAppAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ChatRoomTables
-        [ResponseType(typeof(ChatRoomTable))]
-        public IHttpActionResult PostChatRoomTable(ChatRoomTable chatRoomTable)
+        // POST: api/ChatRoomUserTables
+        [ResponseType(typeof(ChatRoomUserTable))]
+        public IHttpActionResult PostChatRoomUserTable(ChatRoomUserTable chatRoomUserTable)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.ChatRoomTable.Add(chatRoomTable);
+            db.ChatRoomUserTable.Add(chatRoomUserTable);
 
             try
             {
@@ -90,7 +88,7 @@ namespace ChatAppAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ChatRoomTableExists(chatRoomTable.PersonalNumberChatRoom))
+                if (ChatRoomUserTableExists(chatRoomUserTable.PersonalNumberCRU))
                 {
                     return Conflict();
                 }
@@ -100,23 +98,23 @@ namespace ChatAppAPI.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = chatRoomTable.PersonalNumberChatRoom }, chatRoomTable);
+            return CreatedAtRoute("DefaultApi", new { id = chatRoomUserTable.PersonalNumberCRU }, chatRoomUserTable);
         }
 
-        // DELETE: api/ChatRoomTables/5
-        [ResponseType(typeof(ChatRoomTable))]
-        public IHttpActionResult DeleteChatRoomTable(int id)
+        // DELETE: api/ChatRoomUserTables/5
+        [ResponseType(typeof(ChatRoomUserTable))]
+        public IHttpActionResult DeleteChatRoomUserTable(int id)
         {
-            ChatRoomTable chatRoomTable = db.ChatRoomTable.Find(id);
-            if (chatRoomTable == null)
+            ChatRoomUserTable chatRoomUserTable = db.ChatRoomUserTable.Find(id);
+            if (chatRoomUserTable == null)
             {
                 return NotFound();
             }
 
-            db.ChatRoomTable.Remove(chatRoomTable);
+            db.ChatRoomUserTable.Remove(chatRoomUserTable);
             db.SaveChanges();
 
-            return Ok(chatRoomTable);
+            return Ok(chatRoomUserTable);
         }
 
         protected override void Dispose(bool disposing)
@@ -128,9 +126,9 @@ namespace ChatAppAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ChatRoomTableExists(int id)
+        private bool ChatRoomUserTableExists(int id)
         {
-            return db.ChatRoomTable.Count(e => e.PersonalNumberChatRoom == id) > 0;
+            return db.ChatRoomUserTable.Count(e => e.PersonalNumberCRU == id) > 0;
         }
     }
 }

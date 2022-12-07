@@ -19,7 +19,7 @@ namespace ChatAppAPI.Models
         public int PNChatRoom { get; set; }
         public string TextMessage { get; set; }
         public System.DateTime DataTime { get; set; }
-
+    
         internal virtual ChatRoomTable ChatRoomTable { get; set; }
         internal virtual UsersTable UsersTable { get; set; }
     }

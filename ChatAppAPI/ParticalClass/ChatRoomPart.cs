@@ -8,11 +8,11 @@ namespace ChatAppAPI.Models
 {
     public partial class ChatRoomTable
     {
-        public string GetLastMessage
+        public string LastMessage
         {
             get
             {
-                string message = "Test message";
+                string message = "Sweep";
                 try
                 {
                     message = ChatMessageTable.LastOrDefault()?.TextMessage ?? "Нет сообщений";

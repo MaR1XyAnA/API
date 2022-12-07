@@ -12,10 +12,10 @@ namespace ChatAppAPI.Respons
         {
             PersonalNumberChatRoom = chatRoomTable.PersonalNumberChatRoom;
             TopicChatRoom = chatRoomTable.TopicChatRoom;
-            LastMessage = chatRoomTable.GetLastMessage;
+            GetLastMessage = chatRoomTable.LastMessage;
         }
         public int PersonalNumberChatRoom { get; set; }
         public string TopicChatRoom { get; set; }
-        public string LastMessage { get; set; } = null;
+        public string GetLastMessage { get; set; }
     }
 }

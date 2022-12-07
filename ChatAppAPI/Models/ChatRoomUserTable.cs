@@ -17,7 +17,7 @@ namespace ChatAppAPI.Models
         public int PersonalNumberCRU { get; set; }
         public int PNChatRoom { get; set; }
         public int PNUser { get; set; }
-    
+
         internal virtual ChatRoomTable ChatRoomTable { get; set; }
         internal virtual UsersTable UsersTable { get; set; }
     }
