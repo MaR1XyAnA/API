@@ -19,7 +19,7 @@ namespace ChatAppAPI.Controllers
 
 
         // GET: api/ChatRoomTables
-        [Route ("api/ChatRoom")]
+        [Route("ListChatRooms")]
         public IHttpActionResult GetChatroomEmploee()
         {
             return Ok(db.ChatRoomTable.Include(Сookies => Сookies.ChatMessageTable).ToList().ConvertAll(Sweep => new ResponceChatRoom(Sweep)));
