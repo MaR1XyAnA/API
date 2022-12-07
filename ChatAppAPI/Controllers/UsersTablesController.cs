@@ -24,7 +24,7 @@ namespace ChatAppAPI.Controllers
         }
 
         [Route("api/authorization_user")]
-        [ResponseType(typeof(ResponceEmployee))]
+        [ResponseType(typeof(ResponseUserTable))]
         public IHttpActionResult Authorization([FromBody] Data data)
         {
             var user = db.UsersTable.ToList().Where
@@ -35,7 +35,7 @@ namespace ChatAppAPI.Controllers
             }
             else
             {
-                return Ok(new ResponceEmployee(user));
+                return Ok(new ResponseUserTable(user));
             }
         }
         public class Data

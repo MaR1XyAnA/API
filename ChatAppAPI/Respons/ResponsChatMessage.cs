@@ -15,6 +15,7 @@ namespace ChatAppAPI.Respons
             PNChatRoom = chatMessageTable.PNChatRoom;
             TextMessage = chatMessageTable.TextMessage;
             DataTime = chatMessageTable.DataTime;
+            TakeMessage= chatMessageTable.TakeMessage;
         }
         public int PersonalNumberMessage { get; set; }
         public int PNUsers { get; set; }

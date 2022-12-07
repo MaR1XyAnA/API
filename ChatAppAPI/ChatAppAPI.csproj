@@ -205,8 +205,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respons\ResponceChatRoom.cs" />
     <Compile Include="Respons\ResponceChatRoomUserTable.cs" />
-    <Compile Include="Respons\ResponceEmployee.cs" />
     <Compile Include="Respons\ResponsChatMessage.cs" />
+    <Compile Include="Respons\ResponseUserTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

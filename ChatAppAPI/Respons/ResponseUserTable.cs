@@ -6,9 +6,9 @@ using System.Web;
 
 namespace ChatAppAPI.Respons
 {
-    public partial class ResponceEmployee
+    public partial class ResponseUserTable
     {
-        public ResponceEmployee(UsersTable usersTable)
+        public ResponseUserTable(UsersTable usersTable)
         {
             NameUser = usersTable.NameUser;
             LoginUser = usersTable.LoginUser;
