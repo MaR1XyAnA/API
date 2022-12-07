@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberMessage" />
           </Key>
-          <Property Name="PersonalNumberMessage" Type="int" Nullable="false" />
+          <Property Name="PersonalNumberMessage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PNUsers" Type="int" Nullable="false" />
           <Property Name="PNChatRoom" Type="int" Nullable="false" />
           <Property Name="TextMessage" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -19,14 +19,14 @@
           <Key>
             <PropertyRef Name="PersonalNumberChatRoom" />
           </Key>
-          <Property Name="PersonalNumberChatRoom" Type="int" Nullable="false" />
+          <Property Name="PersonalNumberChatRoom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TopicChatRoom" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ChatRoomUserTable">
           <Key>
             <PropertyRef Name="PersonalNumberCRU" />
           </Key>
-          <Property Name="PersonalNumberCRU" Type="int" Nullable="false" />
+          <Property Name="PersonalNumberCRU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PNChatRoom" Type="int" Nullable="false" />
           <Property Name="PNUser" Type="int" Nullable="false" />
         </EntityType>
@@ -151,7 +151,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberMessage" />
           </Key>
-          <Property Name="PersonalNumberMessage" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumberMessage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PNUsers" Type="Int32" Nullable="false" />
           <Property Name="PNChatRoom" Type="Int32" Nullable="false" />
           <Property Name="TextMessage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -163,7 +163,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberChatRoom" />
           </Key>
-          <Property Name="PersonalNumberChatRoom" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumberChatRoom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TopicChatRoom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChatMessageTable" Relationship="ChatCollegeDataBaseModel.FK_ChatMessageTable_ChatRoomTable" FromRole="ChatRoomTable" ToRole="ChatMessageTable" />
           <NavigationProperty Name="ChatRoomUserTable" Relationship="ChatCollegeDataBaseModel.FK_ChatRoomUserTable_ChatRoomTable" FromRole="ChatRoomTable" ToRole="ChatRoomUserTable" />
@@ -172,7 +172,7 @@
           <Key>
             <PropertyRef Name="PersonalNumberCRU" />
           </Key>
-          <Property Name="PersonalNumberCRU" Type="Int32" Nullable="false" />
+          <Property Name="PersonalNumberCRU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PNChatRoom" Type="Int32" Nullable="false" />
           <Property Name="PNUser" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ChatRoomTable" Relationship="ChatCollegeDataBaseModel.FK_ChatRoomUserTable_ChatRoomTable" FromRole="ChatRoomUserTable" ToRole="ChatRoomTable" />
@@ -247,7 +247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
