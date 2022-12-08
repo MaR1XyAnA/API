@@ -12,7 +12,7 @@
           <Property Name="PersonalNumberMessage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PNUsers" Type="int" Nullable="false" />
           <Property Name="PNChatRoom" Type="int" Nullable="false" />
-          <Property Name="TextMessage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TextMessage" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="DataTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ChatRoomTable">
@@ -154,7 +154,7 @@
           <Property Name="PersonalNumberMessage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PNUsers" Type="Int32" Nullable="false" />
           <Property Name="PNChatRoom" Type="Int32" Nullable="false" />
-          <Property Name="TextMessage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TextMessage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DataTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ChatRoomTable" Relationship="ChatCollegeDataBaseModel.FK_ChatMessageTable_ChatRoomTable" FromRole="ChatMessageTable" ToRole="ChatRoomTable" />
           <NavigationProperty Name="UsersTable" Relationship="ChatCollegeDataBaseModel.FK_ChatMessageTable_UsersTable" FromRole="ChatMessageTable" ToRole="UsersTable" />

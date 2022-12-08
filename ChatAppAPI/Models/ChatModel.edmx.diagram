@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5ef01ff165bb4aa6ac20e962e33dfbe0" Name="Diagram1">
-        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatMessageTable" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatRoomTable" Width="1.5" PointX="0.75" PointY="7.25" />
-        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatRoomUserTable" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.875" />
-        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.UsersTable" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatMessageTable" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatRoomTable" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.ChatRoomUserTable" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2" />
+        <EntityTypeShape EntityType="ChatCollegeDataBaseModel.UsersTable" Width="1.5" PointX="0.75" PointY="3.875" />
         <AssociationConnector Association="ChatCollegeDataBaseModel.FK_ChatMessageTable_ChatRoomTable" />
         <AssociationConnector Association="ChatCollegeDataBaseModel.FK_ChatMessageTable_UsersTable" />
         <AssociationConnector Association="ChatCollegeDataBaseModel.FK_ChatRoomUserTable_ChatRoomTable" />
