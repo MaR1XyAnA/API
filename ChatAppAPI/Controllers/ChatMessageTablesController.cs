@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -19,6 +20,37 @@ namespace ChatAppAPI.Controllers
             return Ok(db.ChatMessageTable.ToList().ConvertAll(Сookies => new ResponsChatMessage(Сookies)));
         }
 
+        public class Sender
+        {
+            public int PNUsers { get; set; }
+            public int PNChatRoom { get; set; }
+            public string TextMessage { get; set; }
+        }
+
+        [Route("chat_message")]
+        [ResponseType(typeof(ResponsChatMessage))]
+        public IHttpActionResult SenderText([FromBody] Sender sender)
+        {
+            var message = db.ChatMessageTable.ToList().Where
+                (info => info.PNChatRoom == sender.PNChatRoom).FirstOrDefault();
+            if (message == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                ChatMessageTable chatMessageTable = new ChatMessageTable
+                {
+                    PNUsers = sender.PNUsers,
+                    PNChatRoom = sender.PNChatRoom,
+                    TextMessage = sender.TextMessage,
+                    DataTime = DateTime.Now
+                };
+                db.ChatMessageTable.Add(chatMessageTable);
+                db.SaveChanges();
+                return Ok();
+            }
+        }
         //public IQueryable<ChatMessageTable> GetChatMessageTables()
         //{
         //    return db.ChatMessageTable;
