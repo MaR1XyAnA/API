@@ -27,7 +27,7 @@ namespace ChatAppAPI.Models
         {
             get
             {
-                string time = $"{DataTime.Hour}:{DataTime.Minute}:{DataTime.Second}";
+                string time = $"{DataTime.Hour}:{DataTime.Minute}";
                 return time.ToString();
             }
         }
