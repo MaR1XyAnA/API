@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Windows;
 using ChatAppAPI.Models;
 using ChatAppAPI.Respons;
 
@@ -32,7 +33,7 @@ namespace ChatAppAPI.Controllers
         public IHttpActionResult SenderText([FromBody] Sender sender)
         {
             var message = db.ChatMessageTable.ToList().Where
-                (info => info.PNChatRoom == sender.PNChatRoom).FirstOrDefault();
+                (info => info.PNChatRoom == sender.PNChatRoom).ToList();
             if (message == null)
             {
                 return NotFound();
@@ -46,9 +47,16 @@ namespace ChatAppAPI.Controllers
                     TextMessage = sender.TextMessage,
                     DataTime = DateTime.Now
                 };
-                db.ChatMessageTable.Add(chatMessageTable);
-                db.SaveChanges();
-                return Ok();
+                try
+                {                    
+                    db.ChatMessageTable.Add(chatMessageTable);
+                    db.SaveChanges();
+                    return Ok();
+                }
+                catch
+                {
+                    return BadRequest("Данного чата не существует");
+                }  
             }
         }
         //public IQueryable<ChatMessageTable> GetChatMessageTables()
